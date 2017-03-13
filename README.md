@@ -1,24 +1,53 @@
-# README
+# FareHarbor CRM
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Synopsis
 
-Things you may want to cover:
+Creating a CRM for FareHarbor
 
-* Ruby version
+## Deployment
 
-* System dependencies
+See this project live: [CHANGE THIS](CHANGE THIS)
 
-* Configuration
+## Technologies
 
-* Database creation
+- Ruby on Rails
+- Javascript
+- JQuery
+- ???
 
-* Database initialization
+## Installation
 
-* How to run the test suite
+1 - Fork and clone this repository.
 
-* Services (job queues, cache servers, search engines, etc.)
+2 - CD into the project directory: ```> cd fareharbor-crm```
 
-* Deployment instructions
+3 - Install gems: ```> bundle install```
 
-* ...
+4 - Create the database: ```> rake db:create```
+
+5 - Migrate the database: ```> rake db:migrate```
+
+6 - Run the server: ```> rails s```
+
+7 - Visit: http://localhost:3000/ to see your app live.
+
+## Screenshots
+
+Caption
+![Image](http://i.imgur.com/nothing.jpg)
+
+Caption
+![Image](http://i.imgur.com/nothing.jpg)
+
+
+## Challenges
+
+1) First Challenge
+
+Insert Challenge Here
+
+2) Second Challenge
+
+## Process
+
+Links to Process Deliverables
