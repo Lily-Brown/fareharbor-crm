@@ -1,3 +1,26 @@
 // Place all the styles related to the feature_requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.feature-requests {
+  border: 1px solid #5D5D6C;
+}
+
+.feature-request {
+  display: block;
+  border: 1px solid #5D5D6C;
+  padding: 2%;
+  min-height: 2em;
+}
+
+.line-left {
+  display: inline-block;
+  float: left;
+  max-width: 80%;
+}
+
+.line-right {
+  display: inline-block;
+  float: right;
+  max-width: 20%;
+}
