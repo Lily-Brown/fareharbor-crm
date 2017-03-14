@@ -2,10 +2,6 @@ class FeatureRequestsController < ApplicationController
   before_action :get_feature_request, only: [:show, :edit, :update, :destroy]
   before_action :get_customer, except: [:index]
 
-  def index
-    # @feature_requests = FeatureRequest.where(:customer_id => params[:customer_id])
-  end
-
   def new
     @feature_request = FeatureRequest.new
   end
