@@ -4,8 +4,10 @@ class CreateFeatures < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :bug_request
       t.integer :status
+      t.belongs_to :feature_request
 
       t.timestamps
     end
   end
 end
+
