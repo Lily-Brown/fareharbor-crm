@@ -1,0 +1,2 @@
+class FeatureRequestsController < ApplicationController
+end
