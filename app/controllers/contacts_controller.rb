@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :get_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(:customer_id => params[:customer_id])
   end
 
   def new
