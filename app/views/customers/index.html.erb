@@ -1,0 +1,16 @@
+<div>
+  <% @customers.each do |customer| %>
+    <div class='customer'>
+      <h1><%= link_to customer.name, customer %></h1>
+      <p>
+        <%= customer.street_address %></br>
+        <%= customer.city %>, <%= customer.state %> <%= customer.zip_code %></br>
+        <%= customer.work_phone %></br>
+        <% if customer.primary_contact %>
+          <%= customer.primary_contact.first_name %></br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+  <%= link_to 'New Customer', new_customer_path %>
+</div>
