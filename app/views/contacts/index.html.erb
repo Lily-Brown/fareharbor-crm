@@ -1,7 +1,7 @@
 <div>
   <% @contacts.each do |contact| %>
     <div class='contact'>
-      <h1><%= link_to contact.full_name, contact %></h1>
+      <h1><%= link_to contact.full_name, customer_contact_path(contact) %></h1>
       <p>
         <%= contact.title %></br>
         <%= contact.email_address %></br>
@@ -9,5 +9,5 @@
       </p>
     </div>
   <% end %>
-  <%= link_to 'New Contact', new_contact_path %>
+  <%= link_to 'New Contact', new_customer_contact_path %>
 </div>

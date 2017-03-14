@@ -6,7 +6,9 @@
       <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
       <%= @customer.work_phone %></br>
       <% if @customer.primary_contact %>
-        <%= link_to @customer.primary_contact.full_name %></br>
+        <%= link_to @customer.primary_contact.full_name, customer_contact_path(@customer.primary_contact) %></br>
+      <% else %>
+        <%= link_to 'Add Primary Contact', new_customer_contact_path %></br>
       <% end %>
     </p>
     <p>

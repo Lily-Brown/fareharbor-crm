@@ -14,10 +14,10 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash[:success] = "Contact added."
-      redirect_to contacts_path
+      redirect_to customer_contacts_path
     else
       flash[:error] = "Contact has not been added."
-      render contacts_path
+      render customer_contacts_path
     end
   end
 
@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash[:success] = "Contact updated successfully."
-      redirect_to @contact
+      redirect_to customer_contact_path(@contact)
     else
       flash[:error] = "Contact has not been updated."
       render :edit
@@ -43,10 +43,10 @@ class ContactsController < ApplicationController
   def destroy
     if @contact.destroy
       flash[:success] = "Contact deleted successfully."
-      redirect_to contacts_path
+      redirect_to customer_contacts_path
     else
       flash[:error] = "Contact has not been deleted."
-      redirect_to @contact
+      redirect_to customer_contact_path(@contact)
     end
   end
 

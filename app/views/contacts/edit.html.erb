@@ -1,5 +1,5 @@
 <div>
-  <%= form_for @contact do |f| %>
+  <%= form_for @contact, url: customer_contact_path(@contact) do |f| %>
     <div class='new-contact'>
       <h4>Edit Contact Information</h4>
       <div class='input-field col s6'>
@@ -22,7 +22,7 @@
         <label for='E-mail Address'>E-mail Address</label>
         <%= f.email_field :email_address %><br/>
       </div>
-      <%= link_to 'Cancel', contact_path %>
+      <%= link_to 'Cancel', customer_contact_path %>
       <%= f.submit 'Save Changes' %>
     </div>
 
