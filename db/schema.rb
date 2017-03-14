@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170314022343) do
   end
 
   create_table "feature_requests", force: :cascade do |t|
+    t.text     "name"
     t.date     "request_date"
     t.integer  "contact_id"
     t.integer  "customer_id"
