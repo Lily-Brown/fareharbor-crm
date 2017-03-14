@@ -1,5 +1,5 @@
 <div>
-  <%= form_for Contact.new do |f| %>
+  <%= form_for [@customer, @contact] do |f| %>
     <div class='new-contact'>
       <h4>Add New Contact</h4>
       <div class='input-field col s6'>
@@ -21,10 +21,6 @@
       <div class='input-field col s6'>
         <label for='E-mail Address'>E-mail Address</label>
         <%= f.text_field :email_address %><br/>
-      </div>
-      <div class='input-field col s6'>
-        <label for='Customer ID'>Customer ID</label>
-        <%= f.text_field :customer_id %><br/>
       </div>
       <%= link_to 'Cancel', customer_contacts_path %>
       <%= f.submit 'Save Changes' %>
