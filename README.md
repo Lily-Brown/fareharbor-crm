@@ -50,4 +50,4 @@ Insert Challenge Here
 
 ## Process
 
-Links to Process Deliverables
+See: [Planning_Deliverables](https://github.com/Lily-Brown/fareharbor-crm/blob/master/Planning_Deliverables.md) for Wireframes, User Stories, Sprints
