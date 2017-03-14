@@ -37,22 +37,22 @@ Customer Page
  
 ### Sprint One
 
-Create Customers
-Create Contacts
-Refine Relationship Between Contacts and Customers
+- Create Customers
+- Create Contacts
+- Refine Relationship Between Contacts and Customers
 
 ### Sprint Two
 
-Create Feature Requests
-Refine Relationship Between Feature Requests and Customers
-Refine Relationship Between Feature Requests and Contacts
+- Create Feature Requests
+- Refine Relationship Between Feature Requests and Customers
+- Refine Relationship Between Feature Requests and Contacts
 
 ### Sprint Three
 
-Create Features
-Refine Relationship Between Features and Feature Requests
+- Create Features
+- Refine Relationship Between Features and Feature Requests
 
 ### Sprint Four
 
-Add Basic Styling
-Add Responsive Styling
+- Add Basic Styling
+- Add Responsive Styling
