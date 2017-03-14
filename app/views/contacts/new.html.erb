@@ -1,0 +1,34 @@
+<div>
+  <%= form_for Contact.new do |f| %>
+    <div class='new-contact'>
+      <h4>Add New Contact</h4>
+      <div class='input-field col s6'>
+        <label for='First Name'>First Name</label>
+        <%= f.text_field :first_name %><br/>
+      </div>
+      <div class='input-field col s6'>
+        <label for='Last Name'>Last Name</label>
+        <%= f.text_field :last_name %><br/>
+      </div>
+      <div class='input-field col s6'>
+        <label for='Title'>Title</label>
+        <%= f.text_field :title %><br/>
+      </div>
+      <div class='input-field col s6'>
+        <label for='Work Phone Number'>Work Phone Number</label>
+        <%= f.text_field :work_phone %><br/>
+      </div>
+      <div class='input-field col s6'>
+        <label for='E-mail Address'>E-mail Address</label>
+        <%= f.text_field :email_address %><br/>
+      </div>
+      <div class='input-field col s6'>
+        <label for='Customer ID'>Customer ID</label>
+        <%= f.text_field :customer_id %><br/>
+      </div>
+      <%= link_to 'Cancel', contacts_path %>
+      <%= f.submit 'Save Changes' %>
+    </div>
+
+  <% end %>
+</div>

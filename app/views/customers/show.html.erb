@@ -6,7 +6,7 @@
       <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
       <%= @customer.work_phone %></br>
       <% if @customer.primary_contact %>
-        <%= @customer.primary_contact.first_name %></br>
+        <%= link_to @customer.primary_contact.full_name %></br>
       <% end %>
     </p>
     <p>
