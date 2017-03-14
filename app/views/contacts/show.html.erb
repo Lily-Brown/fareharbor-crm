@@ -1,0 +1,16 @@
+<div>
+  <div class="@contact">
+    <h1><%= @contact.full_name %></h1>
+    <h2><%= link_to @contact.customer.name, customer_path(@contact.customer) %></h2>
+    <p>
+      <%= @contact.title %></br>
+      <%= @contact.work_phone %></br>
+      <%= @contact.email_address %>
+    </p>
+    <p>
+      <%= link_to 'Edit Contact', edit_customer_contact_path(@customer,@contact) %></br>
+      <%= link_to 'Delete Contact', customer_contact_path(@customer,@contact), method: :delete, 
+        :data => {:confirm => 'Are you sure you want to delete this Contact?'} %>
+    </p>
+  </div>
+</div>

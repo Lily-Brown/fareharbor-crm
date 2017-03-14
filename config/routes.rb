@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :customers
-
+  resources :customers do 
+    resources :contacts
+  end
+  
 end
