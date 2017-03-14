@@ -1,5 +1,6 @@
 <div>
-  <%= form_for @contact, url: customer_contact_path(@contact) do |f| %>
+  <%= form_for @contact, :as => :contact, :url => customer_contact_path(@customer,@contact) do |f| %>
+
     <div class='new-contact'>
       <h4>Edit Contact Information</h4>
       <div class='input-field col s6'>

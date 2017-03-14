@@ -7,8 +7,8 @@
       <%= @contact.email_address %>
     </p>
     <p>
-      <%= link_to 'Edit Contact', edit_customer_contact_path(@contact) %></br>
-      <%= link_to 'Delete Contact', customer_contact_path(@contact), method: :delete, 
+      <%= link_to 'Edit Contact', edit_customer_contact_path(@customer,@contact) %></br>
+      <%= link_to 'Delete Contact', customer_contact_path(@customer,@contact), method: :delete, 
         :data => {:confirm => 'Are you sure you want to delete this Contact?'} %>
     </p>
   </div>
