@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bug_request: MyString
+  status: MyInteger
+
+two:
+  name: MyString
+  bug_request: MyString
+  status: MyInteger
