@@ -7,6 +7,7 @@ class CreateContacts < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :work_phone
       t.string :email_address
+      t.boolean :is_primary, :default => false 
       t.belongs_to :customer
 
       t.timestamps
