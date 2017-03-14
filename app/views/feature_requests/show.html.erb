@@ -1,26 +1,35 @@
-<div>
-  <div class="@feature_request">
-    <h1><%= @feature_request.name %></h1>
-    <h2><%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %></h2>
-    <p>
-      <%= @feature_request.request_date %></br>
+<div class='container'>
+  <div class='header'>
+    <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
+  </div>
+  <div class='feature-request-content'>
+    <div class='div-left'>
+      <strong>Request Date:</strong> <%= @feature_request.request_date %></br></br>
+      <strong>Customer Summary:</strong></br>
+      <%= @feature_request.customer_summary %>
+    </div>
+    <div class='div-right'>
       <%= link_to @feature_request.request_contact.full_name,
               customer_contact_path(@customer,@feature_request.request_contact) %></br>
-      <%= @feature_request.customer_summary %>
-    </p>
+      <i><%= @feature_request.request_contact.title %></i></br>
+      <%= @feature_request.request_contact.email_address %></br>
+      <%= @feature_request.request_contact.work_phone %></br>
+    </div>
   </div>
-  <div class="features">
+  <div class='identified-features'>
     <% @features.each do |feature| %>
       <div class='feature'>
-        <h2><%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %></h2>
-        <p>
+        <div class='line-left'>
+        <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> <i>Status:</i> <%= feature.status %>
+        </div>
+        <div class='line-right'>
           <%= feature.bug_request %></br>
-        </p>
+        </div>
       </div>
     <% end %>
-    <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
   </div>
-  <div class="edit-delete">
+  <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
+  <div class='edit-delete'>
     <p>
       <%= link_to 'Edit Feature Request', edit_customer_feature_request_path(@customer,@feature_request) %></br>
       <%= link_to 'Delete Feature Request', customer_feature_request_path(@customer,@feature_request), method: :delete, 

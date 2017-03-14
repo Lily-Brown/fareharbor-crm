@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.feature-requests {
+.feature-requests, .identified-features {
   border: 1px solid #5D5D6C;
 }
 
-.feature-request {
+.feature-request, .feature {
   display: block;
   border: 1px solid #5D5D6C;
   padding: 2%;
@@ -23,4 +23,24 @@
   display: inline-block;
   float: right;
   max-width: 20%;
+}
+
+.feature-request-content {
+  display: block;
+  padding: 3% 0 5% 0;
+  min-height: 30vh;
+}
+
+.div-left {
+  display: inline-block;
+  max-width: 65%;
+  float: left;
+}
+
+.div-right {
+  font-size: 14px;
+  display: inline-block;
+  max-width: 35%;
+  float: right;
+  text-align: right;
 }
