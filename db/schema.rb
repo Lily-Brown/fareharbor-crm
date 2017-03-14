@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20170314022343) do
     t.integer  "contact_id"
     t.integer  "customer_id"
     t.text     "customer_summary"
-    t.integer  "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "status",           default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["contact_id"], name: "index_feature_requests_on_contact_id", using: :btree
     t.index ["customer_id"], name: "index_feature_requests_on_customer_id", using: :btree
   end
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 20170314022343) do
   create_table "features", force: :cascade do |t|
     t.string   "name"
     t.string   "bug_request"
-    t.integer  "status"
+    t.integer  "status",             default: 0
     t.integer  "feature_request_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["feature_request_id"], name: "index_features_on_feature_request_id", using: :btree
   end
 
