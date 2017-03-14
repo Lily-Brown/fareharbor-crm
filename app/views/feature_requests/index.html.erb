@@ -1,0 +1,21 @@
+<div class='container'>
+  <div class='header'>
+    <h1>Feature Requests</h1>
+  </div>
+  <div class='feature-requests'>
+    <% @feature_requests.each do |feature_request| %>
+      <div class='feature-request'>
+        <div class='line-left'>
+          <%= link_to feature_request.name, 
+              customer_feature_request_path(feature_request.customer,feature_request) %>: 
+          <%= link_to feature_request.customer.name, 
+              customer_path(feature_request.customer) %>
+        </div>
+        <div class='line-right'>
+          <%= link_to feature_request.request_contact.full_name,
+              customer_contact_path(feature_request.customer,feature_request.request_contact) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

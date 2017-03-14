@@ -2,6 +2,10 @@ class FeatureRequestsController < ApplicationController
   before_action :get_feature_request, only: [:show, :edit, :update, :destroy]
   before_action :get_customer, except: [:index]
 
+  def index
+    @feature_requests = FeatureRequest.all
+  end
+
   def new
     @feature_request = FeatureRequest.new
   end

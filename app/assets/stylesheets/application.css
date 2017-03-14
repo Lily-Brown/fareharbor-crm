@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font: normal 16px Verdana, Arial, sans-serif;
+}
+
+.container {
+  width: 55%;
+  margin: 0 auto;
+}
