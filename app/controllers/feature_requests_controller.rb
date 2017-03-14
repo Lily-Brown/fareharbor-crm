@@ -20,6 +20,7 @@ class FeatureRequestsController < ApplicationController
   end
 
   def show
+    @features = Feature.where(:feature_request_id => @feature_request.id)
   end
 
   def edit

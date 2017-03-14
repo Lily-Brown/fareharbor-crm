@@ -8,6 +8,19 @@
               customer_contact_path(@customer,@feature_request.request_contact) %></br>
       <%= @feature_request.customer_summary %>
     </p>
+  </div>
+  <div class="features">
+    <% @features.each do |feature| %>
+      <div class='feature'>
+        <h2><%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %></h2>
+        <p>
+          <%= feature.bug_request %></br>
+        </p>
+      </div>
+    <% end %>
+    <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
+  </div>
+  <div class="edit-delete">
     <p>
       <%= link_to 'Edit Feature Request', edit_customer_feature_request_path(@customer,@feature_request) %></br>
       <%= link_to 'Delete Feature Request', customer_feature_request_path(@customer,@feature_request), method: :delete, 

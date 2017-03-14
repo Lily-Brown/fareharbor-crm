@@ -1,0 +1,15 @@
+<div>
+  <div class="feature">
+    <h1><%= @feature.name %></h1>
+    <h2><%= link_to @feature.feature_request.name, customer_feature_request_path(@customer,@feature_request) %></h2>
+    <p>
+      <%= @feature.bug_request %></br>
+      <%= @feature.status %></br>
+    </p>
+    <p>
+      <%= link_to 'Edit Feature', edit_customer_feature_request_feature_path(@customer,@feature_request,@feature) %></br>
+      <%= link_to 'Delete Feature', customer_feature_request_feature_path(@customer,@feature_request,@feature), method: :delete, 
+        :data => {:confirm => 'Are you sure you want to delete this Feature?'} %>
+    </p>
+  </div>
+</div>
