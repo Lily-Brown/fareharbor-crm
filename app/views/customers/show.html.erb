@@ -2,14 +2,20 @@
   <div class="@customer">
     <h1><%= @customer.name %></h1>
     <p>
+      <% if @customer.primary_contact %>
+        Primary Contact: <%= link_to @customer.primary_contact.full_name,
+          customer_contact_path(@customer,@customer.primary_contact) %></br>
+      <% else %>
+        <%= link_to 'Add Primary Contact', customer_contacts_path(@customer) %></br>
+      <% end %>
+    </p>
+    <p>
       <%= @customer.street_address %></br>
       <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
       <%= @customer.work_phone %></br>
-      <% if @customer.primary_contact %>
-        <%= link_to @customer.primary_contact.full_name, customer_contact_path(@customer,@customer.primary_contact) %></br>
-      <% else %>
-        <%= link_to 'Add Primary Contact', new_customer_contact_path(@customer) %></br>
-      <% end %>
+    </p>
+    <p>
+      <%= link_to 'See All Contacts', customer_contacts_path(@customer)%>
     </p>
     <p>
       <%= link_to 'Edit Customer', edit_customer_path(@customer) %></br>

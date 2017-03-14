@@ -6,7 +6,15 @@
         <%= contact.title %></br>
         <%= contact.email_address %></br>
         <%= contact.work_phone %></br>
+        <% if (!contact.is_primary) %>
+          <%= form_for contact, :as => :contact,
+              :url => customer_contact_path(contact.customer,contact) do |f| %>
+            <%= f.hidden_field :is_primary, :value => true %></br>
+            <%= f.submit 'Make Primary Contact' %>
+          <% end %>
+        <% end %>
       </p>
+      <hr>
     </div>
   <% end %>
   <%= link_to 'New Contact', new_customer_contact_path %>

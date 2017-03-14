@@ -33,6 +33,7 @@ class ContactsController < ApplicationController
   def update
     @contact.update_attributes(contact_params)
     @contact.full_name = @contact.first_name + " " + @contact.last_name
+    reset_primary if @contact.is_primary === true
 
     if @contact.save
       flash[:success] = "Contact updated successfully."
@@ -61,6 +62,12 @@ class ContactsController < ApplicationController
 
   def get_customer
     @customer = Customer.find(params[:customer_id])
+  end
+
+  def reset_primary
+    current_primary = Contact.where(:is_primary => true)
+    current_primary[0].is_primary = false
+    current_primary[0].save
   end
 
   def contact_params
