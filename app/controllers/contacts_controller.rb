@@ -1,21 +1,19 @@
 class ContactsController < ApplicationController
   before_action :get_contact, only: [:show, :edit, :update, :destroy]
+  before_action :get_customer, except: [:index]
 
   def index
     @contacts = Contact.where(:customer_id => params[:customer_id])
   end
 
   def new
-    @customer = Customer.find(params[:customer_id])
     @contact = Contact.new
   end
 
   def create
-    customer_id = params[:customer_id]
-    @customer = Customer.find(customer_id)
     @contact = Contact.new(contact_params)
     @contact.full_name = @contact.first_name + " " + @contact.last_name
-    @contact.customer_id = customer_id
+    @contact.customer_id = params[:customer_id]
 
     if @contact.save
       flash[:success] = "Contact added."
@@ -59,6 +57,10 @@ class ContactsController < ApplicationController
 
   def get_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def get_customer
+    @customer = Customer.find(params[:customer_id])
   end
 
   def contact_params
