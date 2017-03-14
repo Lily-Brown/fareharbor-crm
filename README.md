@@ -19,7 +19,7 @@ See this project live: [CHANGE THIS](CHANGE THIS)
 
 1 - Fork and clone this repository.
 
-2 - CD into the project directory: ```> cd fareharbor-crm```
+2 - CD into the project directory: ```> cd template-crm```
 
 3 - Install gems: ```> bundle install```
 
