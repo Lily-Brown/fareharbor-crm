@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.full_name = @contact.first_name + " " + @contact.last_name
     @contact.customer_id = params[:customer_id]
+    reset_primary if @contact.is_primary === true
 
     if @contact.save
       flash[:success] = "Contact added."
