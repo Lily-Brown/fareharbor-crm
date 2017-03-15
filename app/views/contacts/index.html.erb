@@ -1,9 +1,13 @@
 <div class='col-md-8 col-md-offset-2'>
-  <% @contacts.each do |contact| %>
-  <div class='header'>
-    <%= link_to contact.full_name, customer_contact_path(contact.customer,contact) %>
+  <div class='row'>
+    <div class='header'>
+      Contacts
+    </div>
   </div>
+  <% @contacts.each do |contact| %>
+  <div class='row'>
     <div class='contact'>
+      <h3><%= link_to contact.full_name, customer_contact_path(contact.customer,contact) %></h3>
       <p>
         <%= contact.title %></br>
         <%= contact.email_address %></br>
@@ -18,6 +22,7 @@
       </p>
       <hr>
     </div>
+  </div>
   <% end %>
   <%= link_to 'New Contact', new_customer_contact_path %>
 </div>
