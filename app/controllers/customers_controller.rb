@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action :get_customer, only: [:show, :edit, :update, :destroy]
 
   def index 
-    @customers = Customer.all
+    @customers = Customer.all.order(:name)
   end 
 
   def new

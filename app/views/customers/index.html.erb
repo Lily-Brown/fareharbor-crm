@@ -4,20 +4,22 @@
       Customers
     </div>
   </div>
-  <% @customers.each do |customer| %>
   <div class='row'>
-    <h1><%= link_to customer.name, customer %></h1>
-    <div class='customer-index'>
-      <p>
+  <% @customers.each do |customer| %>
+    <div class='card'>
+      <div class='card-header'>
+        <%= link_to customer.name, customer %>
+      </div>
+      <div class='card-block'>
         <%= customer.street_address %></br>
         <%= customer.city %>, <%= customer.state %> <%= customer.zip_code %></br>
         <%= customer.work_phone %></br>
         <% if customer.primary_contact %>
           <%= customer.primary_contact.full_name %></br>
         <% end %>
-      </p>
+      </div>
     </div>
-  </div>
   <% end %>
+  </div>
   <%= link_to 'New Customer', new_customer_path %>
 </div>
