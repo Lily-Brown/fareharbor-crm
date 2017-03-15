@@ -2,7 +2,7 @@
   <div class='header'>
     Feature Requests
   </div>
-  <div class='feature-requests'>
+  <div class='feature-requests grey-border'>
     <% @feature_requests.each do |feature_request| %>
       <div class='feature-request'>
         <div class='line-left'>
@@ -16,6 +16,9 @@
               customer_contact_path(feature_request.customer,feature_request.request_contact) %>
         </div>
       </div>
+      <% if !(feature_request === @feature_requests.last) %>
+        <div class='border-line'></div>
+      <% end %>
     <% end %>
   </div>
 </div>

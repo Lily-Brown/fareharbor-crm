@@ -16,7 +16,7 @@
       <%= @feature_request.request_contact.work_phone %></br>
     </div>
   </div>
-  <div class='identified-features'>
+  <div class='identified-features grey-border'>
     <% @features.each do |feature| %>
       <div class='feature'>
         <div class='line-left'>
@@ -27,8 +27,13 @@
         </div>
       </div>
     <% end %>
+    <div class='div-new'>
+      <div class='div-left'>
+        <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
+      </div>
+    </div>
   </div>
-  <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
+  
   <div class='edit-delete'>
     <p>
       <%= link_to 'Edit Feature Request', edit_customer_feature_request_path(@customer,@feature_request) %></br>

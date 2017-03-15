@@ -2,15 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.feature-requests, .identified-features {
+.grey-border {
   border: 1px solid #5D5D6C;
 }
 
-.feature-request, .feature {
+.border-line {
+  width: 80%;
+  border-bottom: 1px solid #5D5D6C;
+  margin: 0 auto;
+}
+
+.feature-request, .feature, .div-new {
   display: block;
-  border: 1px solid #5D5D6C;
   padding: 2%;
   min-height: 2em;
+}
+
+.feature-request-content, .identified-features, .edit-delete {
+  display: block;
 }
 
 .line-left {
