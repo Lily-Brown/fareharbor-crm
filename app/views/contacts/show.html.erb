@@ -1,6 +1,8 @@
-<div>
-  <div class="@contact">
-    <h1><%= @contact.full_name %></h1>
+<div class='container'>
+  <div class='header'>
+    <%= @contact.full_name %>
+  </div>
+  <div class="contact">
     <h2><%= link_to @contact.customer.name, customer_path(@contact.customer) %></h2>
     <p>
       <%= @contact.title %></br>
