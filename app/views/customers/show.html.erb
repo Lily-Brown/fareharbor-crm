@@ -1,38 +1,45 @@
-<div>
-  <div class="@customer">
-    <h1><%= @customer.name %></h1>
-    <p>
-      <% if @customer.primary_contact %>
-        Primary Contact: <%= link_to @customer.primary_contact.full_name,
-          customer_contact_path(@customer,@customer.primary_contact) %></br>
-      <% else %>
-        <%= link_to 'Add Primary Contact', customer_contacts_path(@customer) %></br>
-      <% end %>
-    </p>
-    <p>
+<div class='container'>
+  <div class='header'>
+    <%= @customer.name %>
+  </div>
+  <div class='customer'>
+    <div class='div-left'>
+      Last Contact Date: <%= @customer.last_contact_date %></br>
       <%= @customer.street_address %></br>
       <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
       <%= @customer.work_phone %></br>
-    </p>
-    <p>
+    </div>
+    <div class='div-right'>
+      <% if @customer.primary_contact %>
+        <%= link_to @customer.primary_contact.full_name,
+                customer_contact_path(@customer,@customer.primary_contact) %></br>
+        <i><%= @customer.primary_contact.title %></i></br>
+        <%= @customer.primary_contact.email_address %></br>
+        <%= @customer.primary_contact.work_phone %></br>
+      <% else %>
+        <%= link_to 'Add Primary Contact', customer_contacts_path(@customer) %></br>
+      <% end %>
       <%= link_to 'See All Contacts', customer_contacts_path(@customer)%>
-    </p>
+    </div>
   </div>
-  <div class="feature-requests">
+  <div class='feature-requests grey-border'>
     <% @feature_requests.each do |feature_request| %>
       <div class='feature_request'>
-        <h2><%= link_to feature_request.name, customer_feature_request_path(@customer,feature_request) %></h2>
-        <p>
+        <div class='div-left'>
+          <%= link_to feature_request.name, customer_feature_request_path(@customer,feature_request) %>
+        </div>
+        <div class='div-right'>
           <%= feature_request.request_date %></br>
-          <%= link_to feature_request.request_contact.full_name,
-              customer_contact_path(@customer,feature_request.request_contact) %></br>
-          <%= feature_request.customer_summary %>
-        </p>
+        </div>
       </div>
     <% end %>
-    <%= link_to 'New Feature Request', new_customer_feature_request_path(@customer) %>
+    <div class='div-new'>
+      <div class='div-left'>
+        <%= link_to 'New Feature Request', new_customer_feature_request_path(@customer) %>
+      </div>
+    </div>
   </div>
-  <div class="edit-delete">
+  <div class='edit-delete'>
     <p>
       <%= link_to 'Edit Customer', edit_customer_path(@customer) %></br>
       <%= link_to 'Delete Customer', customer_path(@customer), method: :delete, 
