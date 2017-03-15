@@ -18,11 +18,6 @@ body {
   font: normal 16px Verdana, Arial, sans-serif;
 }
 
-.container {
-  width: 55%;
-  margin: 0 auto;
-}
-
 .header {
   font-size: 30px;
   font-weight: bold;
@@ -30,37 +25,12 @@ body {
 }
 
 .grey-border {
+  width: 100%;
   border: 1px solid #5D5D6C;
 }
 
 .border-line {
-  width: 80%;
+  width: 100%;
   border-bottom: 1px solid #5D5D6C;
   margin: 0 auto;
-}
-
-.line-left {
-  display: inline-block;
-  float: left;
-  max-width: 80%;
-}
-
-.line-right {
-  display: inline-block;
-  float: right;
-  max-width: 20%;
-}
-
-.div-left {
-  display: inline-block;
-  max-width: 65%;
-  float: left;
-}
-
-.div-right {
-  font-size: 14px;
-  display: inline-block;
-  max-width: 35%;
-  float: right;
-  text-align: right;
 }
