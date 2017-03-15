@@ -32,14 +32,9 @@ body {
   padding: 10px !important;
 }
 
-.grey-border {
-  width: 100%;
-  border: 1px solid #5D5D6C;
-}
-
 .border-line {
   width: 100%;
-  border-bottom: 1px solid #5D5D6C;
+  border-bottom: 1px solid #E5E5E5;
   margin: 0 auto;
 }
 
