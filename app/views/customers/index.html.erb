@@ -1,7 +1,9 @@
-<div>
+<div class='container'>
   <% @customers.each do |customer| %>
-    <div class='customer'>
-      <h1><%= link_to customer.name, customer %></h1>
+  <h1>
+    <%= link_to customer.name, customer %>
+  </h1>
+    <div class='customer-index'>
       <p>
         <%= customer.street_address %></br>
         <%= customer.city %>, <%= customer.state %> <%= customer.zip_code %></br>
