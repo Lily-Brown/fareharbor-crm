@@ -1,8 +1,8 @@
 <div class='container'>
+  <% @contacts.each do |contact| %>
   <div class='header'>
     <%= link_to contact.full_name, customer_contact_path(contact.customer,contact) %>
   </div>
-  <% @contacts.each do |contact| %>
     <div class='contact'>
       <p>
         <%= contact.title %></br>
