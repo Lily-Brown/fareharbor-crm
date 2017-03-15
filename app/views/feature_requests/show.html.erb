@@ -1,14 +1,17 @@
 <div class='col-md-8 col-md-offset-2'>
-  <div class='header'>
-    <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
+  <div class='row'>
+    <div class='header'>
+      <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
+    </div>
   </div>
-  <div class='feature-request-content'>
-    <div class='div-left'>
-      <strong>Request Date:</strong> <%= @feature_request.request_date %></br></br>
+  
+  <div class='row'>
+    <div class='col-md-8'>
+      <strong>Request Date:</strong> <%= @feature_request.request_date %></br>
       <strong>Customer Summary:</strong></br>
       <%= @feature_request.customer_summary %>
     </div>
-    <div class='div-right'>
+    <div class='col-md-4 text-right'>
       <%= link_to @feature_request.request_contact.full_name,
               customer_contact_path(@customer,@feature_request.request_contact) %></br>
       <i><%= @feature_request.request_contact.title %></i></br>
@@ -16,25 +19,28 @@
       <%= @feature_request.request_contact.work_phone %></br>
     </div>
   </div>
-  <div class='identified-features grey-border'>
-    <% @features.each do |feature| %>
-      <div class='feature'>
-        <div class='line-left'>
-        <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> <i>Status:</i> <%= feature.status %>
+
+  <div class='row'>
+    <div class='grey-border'>
+      <% @features.each do |feature| %>
+        <div class='row feature'>
+          <div class='col-md-8'>
+          <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> <i>Status:</i> <%= feature.status %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <%= feature.bug_request %></br>
+          </div>
         </div>
-        <div class='line-right'>
-          <%= feature.bug_request %></br>
+      <% end %>
+      <div class='div-new'>
+        <div class='div-left'>
+          <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
         </div>
-      </div>
-    <% end %>
-    <div class='div-new'>
-      <div class='div-left'>
-        <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
       </div>
     </div>
   </div>
   
-  <div class='edit-delete'>
+  <div class='row edit-delete'>
     <p>
       <%= link_to 'Edit Feature Request', edit_customer_feature_request_path(@customer,@feature_request) %></br>
       <%= link_to 'Delete Feature Request', customer_feature_request_path(@customer,@feature_request), method: :delete, 
