@@ -24,6 +24,14 @@ body {
   padding: 1%;
 }
 
+.logo {
+  height: 30px;
+}
+
+.navbar-brand {
+  padding: 10px !important;
+}
+
 .grey-border {
   width: 100%;
   border: 1px solid #5D5D6C;
