@@ -31,7 +31,7 @@ class FeaturesController < ApplicationController
     
     if @feature.save
       flash[:success] = "Feature updated successfully."
-      redirect_to customer_feature_request_path(@customer,@feature_request)
+      redirect_to customer_feature_request_feature_path(@customer,@feature_request,@feature)
     else
       flash[:error] = "Feature has not been updated."
       render :edit

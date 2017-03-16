@@ -4,17 +4,27 @@
       <%= @feature.name %>
     </div>
   <div class='row'>
-    <div class='feature'>
-      <p><strong>Identified In</strong>: <%= link_to @feature.feature_request.name, customer_feature_request_path(@customer,@feature_request) %></p>
-      <p>
-        <strong>Bug Request</strong>: <%= link_to @feature.bug_request, '#'%></br>
-        <strong>Status</strong>: <%= @feature.status %></br>
-      </p>
-      <p>
-        <%= link_to 'Edit Feature', edit_customer_feature_request_feature_path(@customer,@feature_request,@feature) %></br>
-        <%= link_to 'Delete Feature', customer_feature_request_feature_path(@customer,@feature_request,@feature), method: :delete, 
-          :data => {:confirm => 'Are you sure you want to delete this Feature?'} %>
-      </p>
+    <div class='card'>
+      <div class='card-block'>
+        <p><strong>Identified In</strong>: <%= link_to @feature.feature_request.name, customer_feature_request_path(@customer,@feature_request) %></p>
+        <p>
+          <strong>Bug Request</strong>: <%= link_to @feature.bug_request, '#'%></br>
+          <strong>Status</strong>: 
+            <% if @feature.status === 'new_feature' %>
+              <span class='label label-danger'>New</span>
+            <% elsif @feature.status === 'in_progress' %>
+              <span class='label label-warning'>In Progress</span>
+            <% else @feature.status === 'in_progress' %>
+              <span class='label label-success'>Complete</span>
+            <% end %>
+            </br>
+        </p>
+      </div>
     </div>
+  </div>
+  <div class='row edit-delete'>
+    <%= link_to 'Edit Feature', edit_customer_feature_request_feature_path(@customer,@feature_request,@feature) %></br>
+    <%= link_to 'Delete Feature', customer_feature_request_feature_path(@customer,@feature_request,@feature), method: :delete, 
+      :data => {:confirm => 'Are you sure you want to delete this Feature?'} %>
   </div>
 </div>
