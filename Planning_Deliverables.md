@@ -1,19 +1,15 @@
-# FareHarbor CRM
+# Template CRM
 
 ## Scope
 
-Creating a CRM for FareHarbor
+Creating a Template CRM
 
 ## Technologies
 
 - Ruby on Rails
 - Javascript
 - JQuery
-- ???
-
-## User Stories
-
-See User Stories and progress on [Trello](ADD TRELLO LINK)
+- Bootstrap
 
 ## Wireframes
 
