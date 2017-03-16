@@ -3,6 +3,7 @@
     <div class='header'>
       Add New Feature Request
     </div>
+    <strong>Customer</strong>: <%= link_to @customer.name, customer_path(@customer) %>
   </div>
   <div class='row'>
     <%= form_for [@customer, @feature_request] do |f| %>
