@@ -24,7 +24,7 @@ class FeatureRequestsController < ApplicationController
   end
 
   def show
-    @features = Feature.where(:feature_request_id => @feature_request.id)
+    @features = Feature.where(:feature_request_id => @feature_request.id).order(:status)
   end
 
   def edit

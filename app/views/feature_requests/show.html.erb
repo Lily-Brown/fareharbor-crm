@@ -19,7 +19,11 @@
       <%= @feature_request.request_contact.work_phone %></br>
     </div>
   </div>
-
+  <div class='row'>
+    <div class='sub-header'>
+      Identified Features
+    </div>
+  </div>
   <div class='row'>
     <div class='card'>
       <% @features.each do |feature| %>
@@ -41,7 +45,7 @@
       <% end %>
       <div class='div-new'>
         <div class='div-left'>
-          <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
+          <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request), :class => 'button' %>
         </div>
       </div>
     </div>

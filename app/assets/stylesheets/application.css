@@ -21,7 +21,12 @@ body {
 .header {
   font-size: 30px;
   font-weight: bold;
-  padding: 1%;
+  padding: 1% 0%;
+}
+
+.sub-header {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .logo {
@@ -40,4 +45,19 @@ body {
 
 .row {
   padding-bottom: 2%;
+}
+
+.button {
+  border: 1px solid #ADADAD;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #000000;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover, .button:active {
+  background-color: #E6E6E6;
+  text-decoration: none;
+  color: #000000;
+  box-shadow: 0px 0px 5px #ADADAD;
 }
