@@ -1,4 +1,4 @@
-# FareHarbor CRM
+# CRM Template
 
 ## Synopsis
 
