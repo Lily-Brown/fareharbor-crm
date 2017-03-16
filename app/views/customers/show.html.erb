@@ -6,10 +6,21 @@
   </div>
   <div class='row customer'>
     <div class='col-md-8'>
-      Last Contact Date: <%= @customer.last_contact_date %></br>
-      <%= @customer.street_address %></br>
-      <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
-      <%= @customer.work_phone %></br>
+      <div class='row'>
+        Last Contact Date: <%= @customer.last_contact_date %></br>
+        <%= @customer.street_address %></br>
+        <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
+        <%= @customer.work_phone %></br>
+      </div>
+      <div class='row'>
+        <%= link_to edit_customer_path(@customer), class: 'button button-edit' do %>
+          <i class='glyphicon glyphicon-pencil'></i>
+        <% end %>
+        <%= link_to customer_path(@customer), method: :delete, 
+            :data => {:confirm => 'Are you sure you want to delete this Customer?'}, class: 'button button-delete' do %>
+          <i class='glyphicon glyphicon-trash'></i> 
+        <% end %>
+      </div>
     </div>
     <div class='col-md-4 text-right'>
       <% if @customer.primary_contact %>
@@ -42,12 +53,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class='row edit-delete'>
-    <p>
-      <%= link_to 'Edit Customer', edit_customer_path(@customer) %></br>
-      <%= link_to 'Delete Customer', customer_path(@customer), method: :delete, 
-        :data => {:confirm => 'Are you sure you want to delete this Customer?'} %>
-    </p>
   </div>
 </div>
