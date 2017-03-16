@@ -7,20 +7,20 @@
   <div class='row'>  
     <%= form_for @feature, :as => :feature, :url => customer_feature_request_feature_path(@customer,@feature_request,@feature) do |f| %>
       <div class='new-feature'>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Name'>Name</label>
-          <%= f.text_field :name %><br/>
+          <%= f.text_field :name, class: 'form-control' %><br/>
         </div>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Bug Request'>Bug Request</label>
-          <%= f.text_field :bug_request %><br/>
+          <%= f.text_field :bug_request, class: 'form-control' %><br/>
         </div>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Status'>Status</label>  
-          <%= f.select :status, Feature.statuses.keys.to_a %><br/>
+          <%= f.select :status, Feature.statuses.keys.to_a, class: 'form-control' %><br/>
         </div>
-        <%= link_to 'Cancel', customer_feature_request_feature_path(@customer,@feature_request) %>
-        <%= f.submit 'Save Changes' %>
+        <%= link_to 'Cancel', customer_feature_request_feature_path(@customer,@feature_request), class: 'button' %>
+        <%= f.submit 'Save Changes', class: 'button' %>
       </div>
     <% end %>
   </div>

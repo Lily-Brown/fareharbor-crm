@@ -18,7 +18,6 @@ body {
   font: normal 16px Verdana, Arial, sans-serif;
 }
 
-
 .header {
   font-size: 30px;
   font-weight: bold;
@@ -55,6 +54,7 @@ body {
   color: #000000;
   transition: all 0.2s ease-in-out;
   margin: 1%;
+  background-color: #FFFFFF;
 }
 
 .button:hover, .button:active {

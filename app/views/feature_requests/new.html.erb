@@ -7,24 +7,24 @@
   <div class='row'>
     <%= form_for [@customer, @feature_request] do |f| %>
       <div class='new-feature-request'>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Name'>Name</label>
-          <%= f.text_field :name %><br/>
+          <%= f.text_field :name, class: 'form-control' %><br/>
         </div>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Request Date'>Request Date</label>
-          <%= f.date_field :request_date %><br/>
+          <%= f.date_field :request_date, class: 'form-control' %><br/>
         </div>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Request Contact'>Request Contact</label>
           <%= f.collection_select :contact_id, Contact.where(:customer_id => @customer.id), :id, :full_name, prompt: true %>
         </div>
-        <div class='input-field col s6'>
+        <div class='input-field for-group'>
           <label for='Customer Summary'>Customer Summary</label>
-          <%= f.text_field :customer_summary %><br/>
+          <%= f.text_field :customer_summary, class: 'form-control' %><br/>
         </div>
-        <%= link_to 'Cancel', customer_path(@customer) %>
-        <%= f.submit 'Save Changes' %>
+        <%= link_to 'Cancel', customer_path(@customer), class: 'button' %>
+        <%= f.submit 'Save Changes', class: 'button' %>
       </div>
     <% end %>
   </div>

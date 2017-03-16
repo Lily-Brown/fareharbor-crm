@@ -6,9 +6,11 @@
   </div>
   <% @contacts.each do |contact| %>
   <div class='row'>
-    <div class='contact'>
-      <h3><%= link_to contact.full_name, customer_contact_path(contact.customer,contact) %></h3>
-      <p>
+    <div class='card'>
+      <div class='card-header'>
+        <%= link_to contact.full_name, customer_contact_path(contact.customer,contact) %>
+      </div>
+      <div class='card-block'>
         <%= contact.title %></br>
         <%= contact.email_address %></br>
         <%= contact.work_phone %></br>
@@ -16,13 +18,12 @@
           <%= form_for contact, :as => :contact,
               :url => customer_contact_path(contact.customer,contact) do |f| %>
             <%= f.hidden_field :is_primary, :value => true %></br>
-            <%= f.submit 'Make Primary Contact' %>
+            <%= f.submit 'Make Primary Contact', class: 'button' %>
           <% end %>
         <% end %>
-      </p>
-      <hr>
+      </div>
     </div>
   </div>
   <% end %>
-  <%= link_to 'New Contact', new_customer_contact_path %>
+  <%= link_to 'New Contact', new_customer_contact_path, class: 'button' %>
 </div>
