@@ -1,24 +1,28 @@
-<div class='container'>
-  <div class='header'>
-    Feature Requests
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      Feature Requests
+    </div>
   </div>
-  <div class='feature-requests grey-border'>
-    <% @feature_requests.each do |feature_request| %>
-      <div class='feature-request'>
-        <div class='line-left'>
-          <%= link_to feature_request.name, 
-              customer_feature_request_path(feature_request.customer,feature_request) %>: 
-          <%= link_to feature_request.customer.name, 
-              customer_path(feature_request.customer) %>
+  <div class='row'>
+    <div class='card'>
+      <% @feature_requests.each do |feature_request| %>
+        <div class='row feature-request'>
+          <div class='col-md-8'>
+            <strong><%= link_to feature_request.name, 
+                customer_feature_request_path(feature_request.customer,feature_request) %></strong>:
+            <%= link_to feature_request.customer.name, 
+                customer_path(feature_request.customer) %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <%= link_to feature_request.request_contact.full_name,
+                customer_contact_path(feature_request.customer,feature_request.request_contact) %>
+          </div>
         </div>
-        <div class='line-right'>
-          <%= link_to feature_request.request_contact.full_name,
-              customer_contact_path(feature_request.customer,feature_request.request_contact) %>
-        </div>
-      </div>
-      <% if !(feature_request === @feature_requests.last) %>
-        <div class='border-line'></div>
+        <% if !(feature_request === @feature_requests.last) %>
+          <div class='border-line'></div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

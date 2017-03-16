@@ -1,44 +1,67 @@
-<div class='container'>
-  <div class='header'>
-    <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
-  </div>
-  <div class='feature-request-content'>
-    <div class='div-left'>
-      <strong>Request Date:</strong> <%= @feature_request.request_date %></br></br>
-      <strong>Customer Summary:</strong></br>
-      <%= @feature_request.customer_summary %>
-    </div>
-    <div class='div-right'>
-      <%= link_to @feature_request.request_contact.full_name,
-              customer_contact_path(@customer,@feature_request.request_contact) %></br>
-      <i><%= @feature_request.request_contact.title %></i></br>
-      <%= @feature_request.request_contact.email_address %></br>
-      <%= @feature_request.request_contact.work_phone %></br>
-    </div>
-  </div>
-  <div class='identified-features grey-border'>
-    <% @features.each do |feature| %>
-      <div class='feature'>
-        <div class='line-left'>
-        <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> <i>Status:</i> <%= feature.status %>
-        </div>
-        <div class='line-right'>
-          <%= feature.bug_request %></br>
-        </div>
-      </div>
-    <% end %>
-    <div class='div-new'>
-      <div class='div-left'>
-        <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request) %>
-      </div>
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
     </div>
   </div>
   
-  <div class='edit-delete'>
-    <p>
-      <%= link_to 'Edit Feature Request', edit_customer_feature_request_path(@customer,@feature_request) %></br>
-      <%= link_to 'Delete Feature Request', customer_feature_request_path(@customer,@feature_request), method: :delete, 
-        :data => {:confirm => 'Are you sure you want to delete this Feature Request?'} %>
-    </p>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='row'>
+        <strong>Request Date:</strong> <%= @feature_request.request_date %></br>
+        <strong>Customer Summary:</strong></br>
+        <%= @feature_request.customer_summary %>
+      </div>
+      <div class='row'>
+        <%= link_to edit_customer_feature_request_path(@customer,@feature_request), class: 'button button-edit' do %>
+          <i class='glyphicon glyphicon-pencil'></i>
+        <% end %>
+        <%= link_to customer_feature_request_path(@customer,@feature_request), method: :delete, 
+          :data => {:confirm => 'Are you sure you want to delete this Feature Request?'}, class: 'button button-delete' do %>
+          <i class='glyphicon glyphicon-trash'></i> 
+        <% end %>
+      </div>
+    </div>
+    <div class='col-md-4 text-right'> 
+      <div class='row'>
+        <strong>Request Contact</strong>:</br>
+        <%= link_to @feature_request.request_contact.full_name,
+                customer_contact_path(@customer,@feature_request.request_contact) %></br>
+        <i><%= @feature_request.request_contact.title %></i></br>
+        <%= @feature_request.request_contact.email_address %></br>
+        <%= @feature_request.request_contact.work_phone %></br>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='sub-header'>
+      Identified Features
+    </div>
+  </div>
+  <div class='row'>
+    <div class='card'>
+      <% @features.each do |feature| %>
+        <div class='row feature'>
+          <div class='col-md-8'>
+          <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> 
+            <% if feature.status === 'new_feature' %>
+              <span class='label label-danger'>New</span>
+            <% elsif feature.status === 'in_progress' %>
+              <span class='label label-warning'>In Progress</span>
+            <% else feature.status === 'in_progress' %>
+              <span class='label label-success'>Complete</span>
+            <% end %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <%= feature.bug_request %></br>
+          </div>
+        </div>
+      <% end %>
+      <div class='div-new'>
+        <div class='div-left'>
+          <%= link_to 'New Feature', new_customer_feature_request_feature_path(@customer,@feature_request), :class => 'button' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
