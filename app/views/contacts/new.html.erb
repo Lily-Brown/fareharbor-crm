@@ -3,6 +3,7 @@
     <div class='header'>
       Add New Contact
     </div>
+    <strong>Customer</strong>: <%= link_to @customer.name, customer_path(@customer) %>
   </div>
   <div class='row'>
     <%= form_for [@customer, @contact] do |f| %>

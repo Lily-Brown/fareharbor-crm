@@ -16,10 +16,17 @@
           <label for='Request Date'>Request Date</label>
           <%= f.date_field :request_date, class: 'form-control' %><br/>
         </div>
-        <div class='input-field for-group'>
-          <label for='Request Contact'>Request Contact</label>
-          <%= f.collection_select :contact_id, Contact.where(:customer_id => @customer.id), :id, :full_name, prompt: true %>
-        </div>
+        <% if @customer.contacts.length > 0 %>
+          <div class='input-field for-group'>
+            <label for='Request Contact'>Request Contact</label>
+            <%= f.collection_select :contact_id, Contact.where(:customer_id => @customer.id), :id, :full_name, prompt: true %>
+          </div>
+        <% else %>
+          <p>
+            Feature Requests require a Customer Contact.<br />
+            <%= link_to 'Add A New Contact', new_customer_contact_path(@customer) %>
+          </p>
+        <% end %>
         <div class='input-field for-group'>
           <label for='Customer Summary'>Customer Summary</label>
           <%= f.text_field :customer_summary, class: 'form-control' %><br/>
