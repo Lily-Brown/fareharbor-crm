@@ -2,18 +2,18 @@
 
 ## Synopsis
 
-Creating a CRM for FareHarbor
+Creating a CRM Template
 
 ## Deployment
 
-See this project live: [CHANGE THIS](CHANGE THIS)
+See this project live: [CRM on Heroku](https://calm-beyond-47766.herokuapp.com)
 
 ## Technologies
 
 - Ruby on Rails
 - Javascript
 - JQuery
-- ???
+- Bootstrap
 
 ## Installation
 
@@ -33,11 +33,11 @@ See this project live: [CHANGE THIS](CHANGE THIS)
 
 ## Screenshots
 
-Caption
-![Image](http://i.imgur.com/nothing.jpg)
+Main Page - Feature Requests
+![Main Page](http://i.imgur.com/BxJ8l2z.png)
 
-Caption
-![Image](http://i.imgur.com/nothing.jpg)
+Feature Request Page
+![Feature Request Page](http://i.imgur.com/z8U6bNG.png)
 
 
 ## Challenges
@@ -50,4 +50,4 @@ Insert Challenge Here
 
 ## Process
 
-See: [Planning_Deliverables](https://github.com/Lily-Brown/fareharbor-crm/blob/master/Planning_Deliverables.md) for Wireframes, User Stories, Sprints
+See: [Planning_Deliverables](https://github.com/Lily-Brown/fareharbor-crm/blob/master/Planning_Deliverables.md) for Wireframes, Data Models, Sprints
