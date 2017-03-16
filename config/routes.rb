@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   
   get 'feature_requests/', to: 'feature_requests#index', as: 'feature_requests'
+  post 'feature_requests/', to: 'feature_requests#new'
 
   root to: 'feature_requests#index'
 end

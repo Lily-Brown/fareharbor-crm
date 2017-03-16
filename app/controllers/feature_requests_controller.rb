@@ -59,7 +59,11 @@ class FeatureRequestsController < ApplicationController
   end
 
   def get_customer
-    @customer = Customer.find(params[:customer_id])
+    if (params[:customer_id])
+      @customer = Customer.find(params[:customer_id])
+    else
+      @customer = Customer.find(params[:feature_request][:customer_id])
+    end
   end
 
   def feature_request_params

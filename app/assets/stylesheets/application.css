@@ -71,3 +71,7 @@ body {
 .button-delete i {
   padding: 1%;
 }
+
+.button-fr {
+  margin-left: 30px;
+}
