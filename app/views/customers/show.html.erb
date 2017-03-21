@@ -36,10 +36,22 @@
     </div>
   </div>
   <div class='row'>
+    <div class='sub-header'>
+      Feature Requests
+    </div>
+  </div>
+  <div class='row'>
     <div class='card'>
       <% @feature_requests.each do |feature_request| %>
         <div class='row feature-request'>
           <div class='col-md-8'>
+            <% if feature_request.status === 'New' %>
+              <span class='label label-danger'>New</span>
+            <% elsif feature_request.status === 'In Progress' %>
+              <span class='label label-warning'>In Progress</span>
+            <% else feature_request.status === 'Completed' %>
+              <span class='label label-success'>Complete</span>
+            <% end %>
             <%= link_to feature_request.name, customer_feature_request_path(@customer,feature_request) %>
           </div>
           <div class='col-md-4 text-right'>
