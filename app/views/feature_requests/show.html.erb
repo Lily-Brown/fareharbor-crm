@@ -40,7 +40,7 @@
                 customer_contact_path(@customer,@feature_request.request_contact) %></br>
         <i><%= @feature_request.request_contact.title %></i></br>
         <%= mail_to @feature_request.request_contact.email_address %></br>
-        <%= @feature_request.request_contact.work_phone %></br>
+        <%= link_to @feature_request.request_contact.work_phone, "tel:#{@feature_request.request_contact.work_phone}" %>
       </div>
     </div>
   </div>

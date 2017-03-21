@@ -8,6 +8,7 @@ class FeatureRequestsController < ApplicationController
 
   def new
     @feature_request = FeatureRequest.new
+    @feature_request.request_date = Time.now
   end
 
   def create
