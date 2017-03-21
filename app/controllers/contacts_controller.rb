@@ -20,8 +20,8 @@ class ContactsController < ApplicationController
       flash[:success] = "Contact added."
       redirect_to customer_path(@customer)
     else
-      flash[:error] = "Contact has not been added."
-      render customer_path(@customer)
+      flash[:error] = "Contact has not been added. " +  @contact.errors.full_messages.join(". ") + "."
+      redirect_to new_customer_contact_path(@customer)
     end
   end
 
@@ -40,18 +40,18 @@ class ContactsController < ApplicationController
       flash[:success] = "Contact updated successfully."
       redirect_to customer_contact_path(@customer,@contact)
     else
-      flash[:error] = "Contact has not been updated."
-      render :edit
+      flash[:error] = "Contact has not been updated. " +  @contact.errors.full_messages.join(". ")
+      redirect_to edit_customer_contact_path(@customer,@contact)
     end
   end
 
   def destroy
     if @contact.destroy
       flash[:success] = "Contact deleted successfully."
-      redirect_to customer_contacts_path(@customer,@contact)
+      redirect_to customer_path(@customer)
     else
       flash[:error] = "Contact has not been deleted."
-      redirect_to customer_contact_path(@customer,@contact)
+      redirect_to customer_path(@customer)
     end
   end
 

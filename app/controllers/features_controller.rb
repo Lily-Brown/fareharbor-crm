@@ -15,7 +15,7 @@ class FeaturesController < ApplicationController
       flash[:success] = "Feature added."
       redirect_to customer_feature_request_path(@customer,@feature_request)
     else
-      flash[:error] = "Feature has not been added."
+      flash[:error] = "Feature has not been added: " +  @feature.errors.full_messages.join(". ") + "."
       redirect_to customer_feature_request_path(@customer,@feature_request)
     end
   end
@@ -33,7 +33,7 @@ class FeaturesController < ApplicationController
       flash[:success] = "Feature updated successfully."
       redirect_to customer_feature_request_feature_path(@customer,@feature_request,@feature)
     else
-      flash[:error] = "Feature has not been updated."
+      flash[:error] = "Feature has not been updated: " +  @feature.errors.full_messages.join(". ") + "."
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class FeaturesController < ApplicationController
       flash[:success] = "Feature deleted successfully."
       redirect_to customer_feature_request_path(@customer,@feature_request)
     else
-      flash[:error] = "Feature has not been deleted."
+      flash[:error] = "Feature has not been deleted: " +  @feature.errors.full_messages.join(". ") + "."
       redirect_to customer_feature_request_path(@customer,@feature_request)
     end
   end

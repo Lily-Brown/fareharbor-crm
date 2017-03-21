@@ -22,8 +22,12 @@
                 customer_path(feature_request.customer) %>
           </div>
           <div class='col-md-4 text-right'>
-            <%= link_to feature_request.request_contact.full_name,
-                customer_contact_path(feature_request.customer,feature_request.request_contact) %>
+            <% if feature_request.request_contact %>
+              <%= link_to feature_request.request_contact.full_name,
+                  customer_contact_path(feature_request.customer,feature_request.request_contact) %>
+            <% else %>
+              <%= link_to 'Add Request Contact', edit_customer_feature_request_path(feature_request.customer,feature_request) %></br>
+            <% end %>
           </div>
         </div>
         <% if !(feature_request === @feature_requests.last) %>

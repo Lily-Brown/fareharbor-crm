@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class='row'>
-    <%= form_for Customer.new do |f| %>
+    <%= form_for @customer do |f| %>
       <div class='new-customer'>
         <div class='input-field for-group'>
           <label for='Name'>Customer Name</label>
@@ -30,6 +30,10 @@
         <div class='input-field for-group'>
           <label for='Work Phone Number'>Work Phone Number</label>
           <%= f.text_field :work_phone, class: 'form-control' %><br/>
+        </div>
+        <div class='input-field for-group'>
+          <label for='Last Contact Date'>Last Contact Date</label>
+          <%= f.date_field :last_contact_date, class: 'form-control' %><br/>
         </div>
         <%= link_to 'Cancel', customers_path, class: 'button' %>
         <%= f.submit 'Save Changes', class: 'button' %>
