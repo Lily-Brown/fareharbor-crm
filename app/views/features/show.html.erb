@@ -10,11 +10,11 @@
         <p>
           <strong>Bug Request</strong>: <%= link_to @feature.bug_request, '#'%></br>
           <strong>Status</strong>: 
-            <% if @feature.status === 'new_feature' %>
+            <% if feature.status === 'New' %>
               <span class='label label-danger'>New</span>
-            <% elsif @feature.status === 'in_progress' %>
+            <% elsif feature.status === 'In Progress' %>
               <span class='label label-warning'>In Progress</span>
-            <% else @feature.status === 'in_progress' %>
+            <% else feature.status === 'Completed' %>
               <span class='label label-success'>Complete</span>
             <% end %>
             </br>
