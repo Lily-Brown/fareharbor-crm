@@ -3,7 +3,7 @@ class FeatureRequestsController < ApplicationController
   before_action :get_customer, except: [:index]
 
   def index
-    @feature_requests = FeatureRequest.all
+    @feature_requests = FeatureRequest.all.order(:status)
   end
 
   def new

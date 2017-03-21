@@ -54,7 +54,6 @@
       <% @features.each do |feature| %>
         <div class='row feature'>
           <div class='col-md-8'>
-          <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> 
           <% if feature.status === 'New' %>
             <span class='label label-danger'>New</span>
           <% elsif feature.status === 'In Progress' %>
@@ -62,6 +61,7 @@
           <% else feature.status === 'Completed' %>
             <span class='label label-success'>Complete</span>
           <% end %>
+          <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> 
           </div>
           <div class='col-md-4 text-right'>
             <%= link_to feature.bug_request, '#'%></br>
