@@ -5,5 +5,5 @@ class FeatureRequest < ApplicationRecord
   belongs_to :contact
   alias_method :request_contact, :contact
 
-  enum status: [:new_feature_request, :in_progress, :complete]
+  enum status: ['New', 'In Progress', 'Complete']
 end

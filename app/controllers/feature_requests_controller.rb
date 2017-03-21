@@ -67,7 +67,7 @@ class FeatureRequestsController < ApplicationController
   end
 
   def feature_request_params
-    params.require(:feature_request).permit(:name,:request_date,:contact_id,:customer_summary)
+    params.require(:feature_request).permit(:name,:request_date,:contact_id,:customer_summary,:status)
   end
 
 end

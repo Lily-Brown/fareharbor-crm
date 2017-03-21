@@ -6,11 +6,11 @@
     </div>
     <div>
       <strong>Status:</strong> 
-      <% if @feature_request.status === 'new_feature' %>
+      <% if @feature_request.status === 'New' %>
         <span class='label label-danger'>New</span>
-      <% elsif @feature_request.status === 'in_progress' %>
+      <% elsif @feature_request.status === 'In Progress' %>
         <span class='label label-warning'>In Progress</span>
-      <% else @feature_request.status === 'in_progress' %>
+      <% else @feature_request.status === 'Completed' %>
         <span class='label label-success'>Complete</span>
       <% end %>
     </div>
@@ -55,13 +55,13 @@
         <div class='row feature'>
           <div class='col-md-8'>
           <%= link_to feature.name, customer_feature_request_feature_path(@customer,@feature_request,feature) %> 
-            <% if feature.status === 'new_feature' %>
-              <span class='label label-danger'>New</span>
-            <% elsif feature.status === 'in_progress' %>
-              <span class='label label-warning'>In Progress</span>
-            <% else feature.status === 'in_progress' %>
-              <span class='label label-success'>Complete</span>
-            <% end %>
+          <% if feature.status === 'New' %>
+            <span class='label label-danger'>New</span>
+          <% elsif feature.status === 'In Progress' %>
+            <span class='label label-warning'>In Progress</span>
+          <% else feature.status === 'Completed' %>
+            <span class='label label-success'>Complete</span>
+          <% end %>
           </div>
           <div class='col-md-4 text-right'>
             <%= link_to feature.bug_request, '#'%></br>
