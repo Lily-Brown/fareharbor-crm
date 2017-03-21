@@ -3,11 +3,12 @@ class FeatureRequestsController < ApplicationController
   before_action :get_customer, except: [:index]
 
   def index
-    @feature_requests = FeatureRequest.all
+    @feature_requests = FeatureRequest.all.order(:status)
   end
 
   def new
     @feature_request = FeatureRequest.new
+    @feature_request.request_date = Time.now
   end
 
   def create
@@ -67,7 +68,7 @@ class FeatureRequestsController < ApplicationController
   end
 
   def feature_request_params
-    params.require(:feature_request).permit(:name,:request_date,:contact_id,:customer_summary)
+    params.require(:feature_request).permit(:name,:request_date,:contact_id,:customer_summary,:status)
   end
 
 end
