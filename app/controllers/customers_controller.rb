@@ -6,6 +6,8 @@ class CustomersController < ApplicationController
   end 
 
   def new
+    @customer = Customer.new
+    @customer.last_contact_date = Time.now
   end
 
   def create
@@ -15,8 +17,8 @@ class CustomersController < ApplicationController
       flash[:success] = "Customer added."
       redirect_to customers_path
     else
-      flash[:error] = "Customer has not been added."
-      render customers_path
+      flash[:error] = "Customer has not been added: " +  @customer.errors.full_messages.join(". ") + "."
+      render new_customer_path(@customer)
     end
   end
 
@@ -34,8 +36,8 @@ class CustomersController < ApplicationController
       flash[:success] = "Customer updated successfully."
       redirect_to @customer
     else
-      flash[:error] = "Customer has not been updated."
-      render :edit
+      flash[:error] = "Customer has not been updated: " +  @customer.errors.full_messages.join(". ") + "."
+      redirect_to edit_customer_path(@customer)
     end
   end
 
@@ -57,7 +59,7 @@ class CustomersController < ApplicationController
 
 
   def customer_params
-    params.require(:customer).permit(:name,:street_address,:city,:state,:zip_code,:work_phone)
+    params.require(:customer).permit(:name,:street_address,:city,:state,:zip_code,:work_phone,:last_contact_date)
   end
 
 end

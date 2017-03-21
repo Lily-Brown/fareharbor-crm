@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
       flash[:success] = "Contact added."
       redirect_to customer_path(@customer)
     else
-      flash[:error] = "Contact has not been added. " +  @contact.errors.full_messages.join(". ")
+      flash[:error] = "Contact has not been added. " +  @contact.errors.full_messages.join(". ") + "."
       redirect_to new_customer_contact_path(@customer)
     end
   end
