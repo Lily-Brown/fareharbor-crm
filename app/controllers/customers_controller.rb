@@ -23,7 +23,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @feature_requests = FeatureRequest.where(:customer_id => @customer.id)
+    @feature_requests = FeatureRequest.where(:customer_id => @customer.id).order(:status)
   end
 
   def edit
