@@ -1,7 +1,18 @@
 <div class='col-md-8 col-md-offset-2'>
   <div class='row'>
     <div class='header'>
-      <%= @feature_request.name %>: <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
+      <%= @feature_request.name %>:<br>
+      <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
+    </div>
+    <div>
+      <strong>Status:</strong> 
+      <% if @feature_request.status === 'new_feature' %>
+        <span class='label label-danger'>New</span>
+      <% elsif @feature_request.status === 'in_progress' %>
+        <span class='label label-warning'>In Progress</span>
+      <% else @feature_request.status === 'in_progress' %>
+        <span class='label label-success'>Complete</span>
+      <% end %>
     </div>
   </div>
   
