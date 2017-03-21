@@ -1,7 +1,7 @@
 <div class='col-md-8 col-md-offset-2'>
   <div class='row'>
     <div class='header'>
-      Edit Contact Information
+      Edit Feature Request Information
     </div>
   </div>
   <div class='row'>
@@ -16,10 +16,17 @@
           <label for='Status'>Status</label>  
           <%= f.select :status, FeatureRequest.statuses.keys.to_a { |w| [w.humanize, w] }, class: 'form-control' %><br/>
         </div>
-        <div class='input-field for-group'>
-          <label for='Request Contact'>Request Contact</label>
-          <%= f.collection_select :contact_id, Contact.where(:customer_id => @customer.id), :id, :full_name, prompt: true %>
-        </div>
+        <% if @customer.contacts.length > 0 %>
+          <div class='input-field for-group'>
+            <label for='Request Contact'>Request Contact</label>
+            <%= f.collection_select :contact_id, Contact.where(:customer_id => @customer.id), :id, :full_name, prompt: true %>
+          </div>
+        <% else %>
+          <p>
+            Feature Requests require a Customer Contact.<br />
+            <%= link_to 'Add A New Contact', new_customer_contact_path(@customer) %>
+          </p>
+        <% end %>
         <div class='input-field for-group'>
           <label for='Customer Summary'>Customer Summary</label>
           <%= f.text_area :customer_summary, class: 'form-control' %><br/>

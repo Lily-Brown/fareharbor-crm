@@ -5,5 +5,7 @@ class FeatureRequest < ApplicationRecord
   belongs_to :contact
   alias_method :request_contact, :contact
 
+  validates :name, :request_date, :customer_summary, presence: true
+  
   enum status: ['New', 'In Progress', 'Complete']
 end

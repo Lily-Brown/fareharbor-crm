@@ -16,10 +16,10 @@ class FeatureRequestsController < ApplicationController
     @feature_request.customer_id = params[:customer_id]
 
     if @feature_request.save
-      flash[:success] = "FeatureRequest added."
+      flash[:success] = "Feature Request added."
       redirect_to customer_path(@customer)
     else
-      flash[:error] = "FeatureRequest has not been added."
+      flash[:error] = "Feature Request has not been added: " +  @feature_request.errors.full_messages.join(". ") + "."
       redirect_to customer_path(@customer)
     end
   end
@@ -35,20 +35,20 @@ class FeatureRequestsController < ApplicationController
     @feature_request.update_attributes(feature_request_params)
     
     if @feature_request.save
-      flash[:success] = "FeatureRequest updated successfully."
+      flash[:success] = "Feature Request updated successfully."
       redirect_to customer_feature_request_path(@customer,@feature_request)
     else
-      flash[:error] = "FeatureRequest has not been updated."
+      flash[:error] = "Feature Request has not been updated: " +  @feature_request.errors.full_messages.join(". ") + "."
       render :edit
     end
   end
 
   def destroy
     if @feature_request.destroy
-      flash[:success] = "FeatureRequest deleted successfully."
+      flash[:success] = "Feature Request deleted successfully."
       redirect_to customer_path(@customer)
     else
-      flash[:error] = "FeatureRequest has not been deleted."
+      flash[:error] = "Feature Request has not been deleted: " +  @feature_request.errors.full_messages.join(". ") + "."
       redirect_to customer_path(@customer)
     end
   end
