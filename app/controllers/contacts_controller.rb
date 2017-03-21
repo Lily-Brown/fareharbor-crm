@@ -66,10 +66,14 @@ class ContactsController < ApplicationController
   end
 
   def reset_primary
-    current_primary = Contact.where(:is_primary => true)
+    current_primary = Contact.where(:is_primary => true, :customer_id => @customer.id)
     if (current_primary.length > 0 && current_primary[0])
-      current_primary[0].is_primary = false
-      current_primary[0].save
+      current_primary.each do |current_primary|
+        if (current_primary != @contact)
+          current_primary.is_primary = false
+          current_primary.save
+        end
+      end
     end
   end
 

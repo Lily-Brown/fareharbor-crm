@@ -35,12 +35,16 @@
     </div>
     <div class='col-md-4 text-right'> 
       <div class='row'>
-        <strong>Request Contact</strong>:</br>
-        <%= link_to @feature_request.request_contact.full_name,
-                customer_contact_path(@customer,@feature_request.request_contact) %></br>
-        <i><%= @feature_request.request_contact.title %></i></br>
-        <%= mail_to @feature_request.request_contact.email_address %></br>
-        <%= link_to @feature_request.request_contact.work_phone, "tel:#{@feature_request.request_contact.work_phone}" %>
+        <% if @feature_request.request_contact %>
+          <strong>Request Contact</strong>:</br>
+          <%= link_to @feature_request.request_contact.full_name,
+                  customer_contact_path(@customer,@feature_request.request_contact) %></br>
+          <i><%= @feature_request.request_contact.title %></i></br>
+          <%= mail_to @feature_request.request_contact.email_address %></br>
+          <%= link_to @feature_request.request_contact.work_phone, "tel:#{@feature_request.request_contact.work_phone}" %>
+        <% else %>
+          <%= link_to 'Add Request Contact', edit_customer_feature_request_path(@customer,@feature_request) %></br>
+        <% end %>
       </div>
     </div>
   </div>
