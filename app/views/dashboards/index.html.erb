@@ -32,10 +32,8 @@
             <a href='#' data-toggle='modal' data-target=<%="#modal-#{dashboard.id}"%>>Update Status</a>
           </div>
         </div>
-        <% if !(dashboard === @dashboards.last) %>
-          <div class='border-line'></div>
-        <% end %>
-        <div class='modal fade' id=<%="#modal-#{dashboard.id}"%> tabindex='-1' role='dialog' aria-labelledby='UpdateStatus' aria-hidden='true'>
+        <div class='border-line'></div>
+        <div class='modal fade' id=<%="modal-#{dashboard.id}"%> tabindex='-1' role='dialog' aria-labelledby='UpdateStatus' aria-hidden='true'>
           <div class='modal-dialog' role='document'>
             <div class='modal-content'>
               <%= form_for dashboard do |f|%>
