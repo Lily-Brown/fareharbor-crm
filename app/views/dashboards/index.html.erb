@@ -1,0 +1,71 @@
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      My Dashboard
+    </div>
+  </div>
+  <div class='row'>
+    <div class='card'>
+      <% @dashboards.each do |dashboard| %>
+        <div class='row feature-request'>
+          <div class='col-md-8'>
+            <strong><%= link_to dashboard.feature_request.name, customer_feature_request_path(dashboard.feature_request.customer, dashboard.feature_request) %></strong>:
+            <%= link_to dashboard.feature_request.customer.name, 
+                customer_path(dashboard.feature_request.customer) %></br>
+            <% if dashboard.feature_request.request_contact %>
+              <strong>Request Contact</strong>: <%= link_to dashboard.feature_request.request_contact.full_name,
+                  customer_contact_path(dashboard.feature_request.customer,dashboard.feature_request.request_contact) %>
+            <% else %>
+              <%= link_to 'Add Request Contact', edit_customer_feature_request_path(dashboard.feature_request.customer,dashboard.feature_request) %></br>
+            <% end %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <% if dashboard.status === 'Awaiting Customer Call-Back' %>
+              <span class='label label-default'>Awaiting Customer Call-Back</span>
+            <% elsif dashboard.status === 'Awaiting Feature Development' %>
+              <span class='label label-info'>Awaiting Feature Development</span>
+            <% elsif dashboard.status === 'To Call' %>
+              <span class='label label-danger'>To Call</span>
+            <% elsif dashboard.status === 'To Log Bugs' %>
+              <span class='label label-warning'>To Log Bugs</span>
+            <% end %><br/>
+            <a href='#' data-toggle='modal' data-target=<%="#modal-#{dashboard.id}"%>>Update Status</a>
+          </div>
+        </div>
+        <div class='border-line'></div>
+        <div class='modal fade' id=<%="modal-#{dashboard.id}"%> tabindex='-1' role='dialog' aria-labelledby='UpdateStatus' aria-hidden='true'>
+          <div class='modal-dialog' role='document'>
+            <div class='modal-content'>
+              <%= form_for dashboard do |f|%>
+              <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Update Status</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+              </div>
+              <div class='modal-body'>
+                <div class='input-field for-group'>
+                  <label for='Customer'>Status</label>
+                  <%= f.select :status, Dashboard.statuses.keys.to_a, required: true %>
+                  <%= f.hidden_field :id, value: dashboard.id %>
+                </div>
+              </div>
+
+              <div class='modal-footer'>
+                <button type='button' class='button' data-dismiss='modal'>Close</button>
+                <%= f.submit 'Update', class: 'button' %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class='row'>
+        <p></br>
+          <a href='#' data-toggle='modal' data-target='#fr-modal' class='button button-fr'>New Feature Request</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
