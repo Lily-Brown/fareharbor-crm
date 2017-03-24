@@ -32,7 +32,7 @@ class DashboardsController < ApplicationController
     @dashboard.update_attributes(dashboard_params)
 
     if @dashboard.save
-      flash[:success] = "Dashboard updated successfully."
+      # flash[:success] = "Dashboard updated successfully."
       redirect_to dashboards_path
     else
       flash[:error] = "Dashboard has not been updated: " +  @dashboard.errors.full_messages.join(". ") + "."

@@ -10,7 +10,7 @@
         Last Contact Date: <%= @customer.last_contact_date %></br>
         <%= @customer.street_address %></br>
         <%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></br>
-        <%= @customer.work_phone %></br>
+        <%= link_to @customer.work_phone, "tel:#{@customer.work_phone}"%></br>
       </div>
       <div class='row'>
         <%= link_to edit_customer_path(@customer), class: 'button button-edit' do %>
@@ -27,8 +27,8 @@
         <%= link_to @customer.primary_contact.full_name,
                 customer_contact_path(@customer,@customer.primary_contact) %></br>
         <i><%= @customer.primary_contact.title %></i></br>
-        <%= @customer.primary_contact.email_address %></br>
-        <%= @customer.primary_contact.work_phone %></br>
+        <%= mail_to @customer.primary_contact.email_address %></br>
+        <%= link_to @customer.primary_contact.work_phone, "tel:#{@customer.primary_contact.work_phone}"%></br>
       <% else %>
         <%= link_to 'Add Primary Contact', customer_contacts_path(@customer) %></br>
       <% end %>
