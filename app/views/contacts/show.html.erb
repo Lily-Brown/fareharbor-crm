@@ -13,7 +13,7 @@
         <p>
           <strong><%= @contact.full_name %></strong><br>
           <i><%= @contact.title %></i></br>
-          <%= @contact.work_phone %></br>
+          <%= link_to @contact.work_phone, "tel:#{@contact.work_phone}"%></br>
           <%= mail_to @contact.email_address %>
         </p>
         <p>
