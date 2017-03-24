@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :features, :except => [:index]
     end
   end
+
+  resources :dashboards, :except => [:show]
   
   get 'feature_requests/', to: 'feature_requests#index', as: 'feature_requests'
   post 'feature_requests/', to: 'feature_requests#new'
