@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, :except => [:show]
   
+  get 'dashboard', to:'dashboards#index', as: 'dashboard_index'
   get 'feature_requests/', to: 'feature_requests#index', as: 'feature_requests'
   post 'feature_requests/', to: 'feature_requests#new'
 

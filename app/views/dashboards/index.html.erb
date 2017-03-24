@@ -23,9 +23,9 @@
             <% if dashboard.status === 'Awaiting Customer Call-Back' %>
               <span class='label label-default'>Awaiting Customer Call-Back</span>
             <% elsif dashboard.status === 'Awaiting Feature Development' %>
-              <span class='label label-primary'>Awaiting Feature Development</span>
+              <span class='label label-info'>Awaiting Feature Development</span>
             <% elsif dashboard.status === 'To Call' %>
-              <span class='label label-info'>To Call</span>
+              <span class='label label-danger'>To Call</span>
             <% elsif dashboard.status === 'To Log Bugs' %>
               <span class='label label-warning'>To Log Bugs</span>
             <% end %><br/>
@@ -61,7 +61,9 @@
         </div>
       <% end %>
       <div class='row'>
-        <a href='#' data-toggle='modal' data-target='#fr-modal' class='button button-fr'>New Feature Request</a>
+        <p></br>
+          <a href='#' data-toggle='modal' data-target='#fr-modal' class='button button-fr'>New Feature Request</a>
+        </p>
       </div>
     </div>
   </div>
