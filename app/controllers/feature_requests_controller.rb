@@ -17,6 +17,7 @@ class FeatureRequestsController < ApplicationController
 
     if @feature_request.save
       flash[:success] = "Feature Request added."
+      create_dashboard
       redirect_to customer_path(@customer)
     else
       flash[:error] = "Feature Request has not been added: " +  @feature_request.errors.full_messages.join(". ") + "."
@@ -65,6 +66,11 @@ class FeatureRequestsController < ApplicationController
     else
       @customer = Customer.find(params[:feature_request][:customer_id])
     end
+  end
+
+  def create_dashboard
+    dashboard = Dashboard.new(:order => Dashboard.count+1, :feature_request_id => @feature_request.id)
+    dashboard.save
   end
 
   def feature_request_params
