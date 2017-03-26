@@ -20,7 +20,6 @@ console.log('Assets connected.');
 // Drag function
 function drag(ev) {
   ev.dataTransfer.setData('image', ev.target.id);
-  console.log("drag:", ev.target.id)
 }
 
 // Prevent default for AllowDrop
@@ -41,14 +40,19 @@ function drop(ev) {
   if (start !== end) {
     var id = target.id.replace('div-','');
     var html = target.children[0];
+    var htmlId = html.classList[0].replace('dashboard-','')
     html.id = parseInt(id)+1;
     target.removeChild(target.children[0]);
     target.appendChild(document.getElementById(data));
-    target.children[0].id = id;
+    var child =  target.children[0];
+    var dashboardId = child.classList[0].replace('dashboard-','');
+    updateOrder(dashboardId,id);
   }
   if (start < end) {
+    updateOrder(htmlId,html.id);
     propogateForward(html,start,end);
   } else {
+    updateOrder(htmlId,html.id-2);
     propogateBackward(html,start,end);
   }
 }
@@ -64,27 +68,56 @@ function findDroppable(target) {
 // Moves photos around if photo is dragged forward
 function propogateForward(html,start,end) {
   for (var i=start+1; i <= end; i++) {
-    html = switchPhoto(html,i);
+    html = switchPhoto(html,i,0);
   }
 }
 
 // Moves photos around if photo is dragged backward
 function propogateBackward(html,start,end) {
   for (var i=start-1; i >= end; i--) {
-    html = switchPhoto(html,i);
+    html = switchPhoto(html,i,1);
   }
 }
 
 // Switches Photo
-function switchPhoto(html,i) {
+function switchPhoto(html,i,direction) {
   var target = document.getElementById('div-'+i);
   html.id = i;
   if (target.children[0] == undefined) {
     target.appendChild(html);
   } else {
     tempHtml = target.children[0];
+    var dashboardId = tempHtml.classList[0].replace('dashboard-','');
+    if (direction === 0) {
+      updateOrder(dashboardId,i+1);
+    } else {
+      updateOrder(dashboardId,i+2);
+    }
     target.removeChild(target.children[0]);
     target.appendChild(html);
     return tempHtml;
   }
+}
+
+// Update order number
+function updateOrder(dashboardID, orderNum) {
+  var url = '/dashboards/' + dashboardID;
+  var data = {
+    dashboard: {
+      order: orderNum,
+    }
+  };
+  $.ajax({
+    type: "PUT",
+    url: url,
+    data: JSON.stringify(data),
+    contentType: 'application/json',
+    dataType: 'json',
+    success: function(data) {
+      console.log("Dashboard "+ dashboardID + " order updated.")
+    },
+    error: function(data) {
+      console.log("error:",data);
+    }
+  });
 }

@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
-  before_action :get_dashboard, only: [:edit, :update, :destroy]
+  before_action :get_dashboard, only: [:edit, :update, :destroy, :show]
+  skip_before_filter :verify_authenticity_token 
 
   def index
     @dashboards = Dashboard.all.order(:order)
@@ -32,8 +33,10 @@ class DashboardsController < ApplicationController
     @dashboard.update_attributes(dashboard_params)
 
     if @dashboard.save
-      # flash[:success] = "Dashboard updated successfully."
-      redirect_to dashboards_path
+      respond_to do |format|
+        format.html  { redirect_to dashboards_path }
+        format.json { render json: @dashboard }
+      end
     else
       flash[:error] = "Dashboard has not been updated: " +  @dashboard.errors.full_messages.join(". ") + "."
       redirect_to edit_dashboard_path(@dashboard)
