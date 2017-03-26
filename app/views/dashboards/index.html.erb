@@ -8,7 +8,7 @@
     <div class='card'>
       <% @dashboards.each do |dashboard| %>
         <div class='row feature-request drop' id=<%="div-#{dashboard.order}"%> ondrop='drop(event)' ondragover='allowDrop(event)'>
-          <div draggable='true' ondragstart='drag(event)' id=<%="#{dashboard.order}"%>>
+          <div draggable='true' class=<%="dashboard-#{dashboard.id}"%> ondragstart='drag(event)' id=<%="#{dashboard.order}"%>>
             <div class='col-md-8'>
               <strong><%= link_to dashboard.feature_request.name, customer_feature_request_path(dashboard.feature_request.customer, dashboard.feature_request) %></strong>:
               <%= link_to dashboard.feature_request.customer.name, 
