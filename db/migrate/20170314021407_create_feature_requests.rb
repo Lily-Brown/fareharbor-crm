@@ -7,6 +7,7 @@ class CreateFeatureRequests < ActiveRecord::Migration[5.0]
       t.belongs_to :customer
       t.text :customer_summary
       t.integer :status, :default => 0
+      t.integer :meeting_id
 
       t.timestamps
     end

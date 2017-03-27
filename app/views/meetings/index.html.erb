@@ -1,0 +1,40 @@
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      Meetings
+    </div>
+  </div>
+  <div class='row'>
+    <div class='card'>
+      <% @meetings.each do |meeting| %>
+        <div class='row feature-request'>
+          <div class='col-md-8'>
+            <%= link_to meeting.name, meeting_path(meeting) %></br>
+            <% meeting.teams.each do |team| %>
+              <%= team.name %>
+              <% if team != meeting.teams.last %>
+              | 
+              <% end %>
+            <% end %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <% if meeting.status === 'Upcoming' %>
+              <span class='label label-warning'>Upcoming</span>
+            <% elsif meeting.status === 'Completed' %>
+              <span class='label label-success'>Completed</span>
+            <% elsif meeting.status === 'Cancelled' %>
+              <span class='label label-danger'>Cancelled</span>
+            <% end %><br/>
+            <%= meeting.date %></br>
+          </div>
+        </div>
+        <% if !(meeting === @meetings.last) %>
+          <div class='border-line'></div>
+        <% end %>
+      <% end %>
+      <div class='row'>
+        <%= link_to 'Add New Meeting', new_meeting_path, class: 'button button-fr' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324032640) do
+ActiveRecord::Schema.define(version: 20170326235529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170324032640) do
   create_table "dashboards", force: :cascade do |t|
     t.integer  "order"
     t.integer  "feature_request_id"
-    t.integer  "status"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "status",             default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "feature_requests", force: :cascade do |t|
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170324032640) do
     t.integer  "customer_id"
     t.text     "customer_summary"
     t.integer  "status",           default: 0
+    t.integer  "meeting_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["contact_id"], name: "index_feature_requests_on_contact_id", using: :btree
@@ -70,6 +71,24 @@ ActiveRecord::Schema.define(version: 20170324032640) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["feature_request_id"], name: "index_features_on_feature_request_id", using: :btree
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.text     "name"
+    t.text     "agenda"
+    t.text     "location"
+    t.time     "time"
+    t.date     "date"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "meeting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -4,16 +4,6 @@
       <%= @feature_request.name %>:<br>
       <%= link_to @feature_request.customer.name, customer_path(@feature_request.customer) %>
     </div>
-    <div>
-      <strong>Status:</strong> 
-      <% if @feature_request.status === 'New' %>
-        <span class='label label-danger'>New</span>
-      <% elsif @feature_request.status === 'In Progress' %>
-        <span class='label label-warning'>In Progress</span>
-      <% else @feature_request.status === 'Completed' %>
-        <span class='label label-success'>Complete</span>
-      <% end %>
-    </div>
   </div>
   
   <div class='row'>
