@@ -44,10 +44,10 @@ class MeetingsController < ApplicationController
   def destroy
     if @meeting.destroy
       flash[:success] = "Meeting deleted successfully."
-      redirect_to meeting_path(@meeting)
+      redirect_to meetings_path
     else
       flash[:error] = "Meeting has not been deleted: " +  @meeting.errors.full_messages.join(". ") + "."
-      redirect_to meeting_path(@meeting)
+      redirect_to meetings_path
     end
   end
 
