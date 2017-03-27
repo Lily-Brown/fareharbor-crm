@@ -3,4 +3,6 @@ class Meeting < ApplicationRecord
   has_many :feature_requests
   
   validates :name, :agenda, :date, :time, :location, presence: true
+
+  enum status: ['Upcoming', 'Completed', 'Cancelled']
 end

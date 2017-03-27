@@ -79,8 +79,9 @@ ActiveRecord::Schema.define(version: 20170326235529) do
     t.text     "location"
     t.time     "time"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "teams", force: :cascade do |t|

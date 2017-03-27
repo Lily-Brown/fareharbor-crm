@@ -6,6 +6,7 @@ class CreateMeetings < ActiveRecord::Migration[5.0]
       t.text :location
       t.time :time
       t.date :date
+      t.integer :status, :default => 0
 
       t.timestamps
     end

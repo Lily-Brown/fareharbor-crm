@@ -10,12 +10,22 @@
         <div class='row feature-request'>
           <div class='col-md-8'>
             <%= link_to meeting.name, meeting_path(meeting) %></br>
-            <% meeting.teams do |team| %>
-              <%= meeting.team.name %>
+            <% meeting.teams.each do |team| %>
+              <%= team.name %>
+              <% if team != meeting.teams.last %>
+              | 
+              <% end %>
             <% end %>
           </div>
           <div class='col-md-4 text-right'>
-            <%= meeting.date %>
+            <% if meeting.status === 'Upcoming' %>
+              <span class='label label-warning'>Upcoming</span>
+            <% elsif meeting.status === 'Completed' %>
+              <span class='label label-success'>Completed</span>
+            <% elsif meeting.status === 'Cancelled' %>
+              <span class='label label-danger'>Cancelled</span>
+            <% end %><br/>
+            <%= meeting.date %></br>
           </div>
         </div>
         <% if !(meeting === @meetings.last) %>
