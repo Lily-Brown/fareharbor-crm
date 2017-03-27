@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  date: 
+  teams: 
+  feature_requests: 
+
+two:
+  name: 
+  date: 
+  teams: 
+  feature_requests: 
