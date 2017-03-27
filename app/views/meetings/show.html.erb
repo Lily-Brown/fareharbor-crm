@@ -3,6 +3,15 @@
     <div class='header'>
       <%= @meeting.name %>:<br>
     </div>
+    <strong>Status</strong>: 
+    <% if @meeting.status === 'Upcoming' %>
+      <span class='label label-warning'>Upcoming</span>
+    <% elsif @meeting.status === 'Completed' %>
+      <span class='label label-success'>Completed</span>
+    <% elsif @meeting.status === 'Cancelled' %>
+      <span class='label label-danger'>Cancelled</span>
+    <% end %>
+    </br>
   </div>
   
   <div class='row'>

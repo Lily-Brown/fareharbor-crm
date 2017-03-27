@@ -13,6 +13,10 @@
           <%= f.text_field :name, class: 'form-control' %><br/>
         </div>
         <div class='input-field for-group'>
+          <label for='Status'>Status</label>  
+          <%= f.select :status, Meeting.statuses.keys.to_a { |w| [w.humanize, w] }, class: 'form-control' %><br/>
+        </div>
+        <div class='input-field for-group'>
           <label for='Date'>Date</label>
           <%= f.date_field :date, class: 'form-control' %><br/>
         </div>
