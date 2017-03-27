@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :dashboards, :except => [:show]
+  resources :meetings
   
   get 'dashboard', to:'dashboards#index', as: 'dashboard_index'
   get 'feature_requests/', to: 'feature_requests#index', as: 'feature_requests'

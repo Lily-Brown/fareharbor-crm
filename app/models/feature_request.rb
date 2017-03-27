@@ -3,6 +3,7 @@ class FeatureRequest < ApplicationRecord
   alias_method :identified_features, :features
   has_one :dashboard
   belongs_to :customer
+  has_many :meetings
   belongs_to :contact
   alias_method :request_contact, :contact
 

@@ -1,0 +1,30 @@
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      Meetings
+    </div>
+  </div>
+  <div class='row'>
+    <div class='card'>
+      <% @meetings.each do |meeting| %>
+        <div class='row feature-request'>
+          <div class='col-md-8'>
+            <%= link_to meeting.name, meeting_path(meeting) %></br>
+            <% meeting.teams do |team| %>
+              <%= meeting.team.name %>
+            <% end %>
+          </div>
+          <div class='col-md-4 text-right'>
+            <%= meeting.date %>
+          </div>
+        </div>
+        <% if !(meeting === @meetings.last) %>
+          <div class='border-line'></div>
+        <% end %>
+      <% end %>
+      <div class='row'>
+        <%= link_to 'Add New Meeting', new_meeting_path, class: 'button button-fr' %>
+      </div>
+    </div>
+  </div>
+</div>

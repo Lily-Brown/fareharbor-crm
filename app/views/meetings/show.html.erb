@@ -1,0 +1,54 @@
+<div class='col-md-8 col-md-offset-2'>
+  <div class='row'>
+    <div class='header'>
+      <%= @meeting.name %>:<br>
+    </div>
+  </div>
+  
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='row'>
+        <strong>Teams Present:</strong></br>
+        <% @meeting.teams.each do |team| %>
+          <%= team.name %>
+          <% if team != @meeting.teams.last %>
+          | 
+          <% end %>
+        <% end %></br>
+        <strong>Agenda:</strong></br>
+        <%= @meeting.agenda %>
+      </div>
+      <div class='row'>
+        <%= link_to edit_meeting_path(@meeting), class: 'button button-edit' do %>
+          <i class='glyphicon glyphicon-pencil'></i>
+        <% end %>
+        <%= link_to meeting_path(@meeting), method: :delete, 
+          :data => {:confirm => 'Are you sure you want to delete this Meeting?'}, class: 'button button-delete' do %>
+          <i class='glyphicon glyphicon-trash'></i> 
+        <% end %>
+      </div>
+    </div>
+    <div class='col-md-4 text-right'> 
+      <div class='row'>
+        <strong>Date:</strong> <%= @meeting.date.strftime("%m/%d/%Y") %></br>
+        <strong>Time:</strong> <%= @meeting.time.strftime(" %I:%M%p") %></br>
+        <strong>Location:</strong> <%= @meeting.location %>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='sub-header'>
+      Feature Requests to Discuss
+    </div>
+  </div>
+  <div class='row'>
+    <div class='card'>
+
+      <div class='div-new'>
+        <div class='div-left'>
+          <%= link_to 'Add Feature Request', '#', :class => 'button' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
